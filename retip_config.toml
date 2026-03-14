@@ -26,9 +26,14 @@ longjmp_address = 0x82AE2A60
 0x825383b8 = {}
 0x827d4320 = {}
 
+#special functions (Hold very significant value
+0x821F02C0 = {name = "baseAssetInit"} # registers all the call back fucntions for each type of asset, Init, Destruct etc.
+0x821FC308 = {name = "dbTextureInitTexture"} # Initializes the textures, this is what i hook on the pc port for texturepacks
+
 #System Functions
 #0x82AFCCC0 = {name = "SleepEx"}
 #0x82B0C0E0 = {name = "RtlSleep"}
+0x821C8268 = {name = "appMainInit"}
 
 #Language Functions
 0x82240B20 = {name = "meSetLanguage"}
@@ -70,6 +75,8 @@ longjmp_address = 0x82AE2A60
 0x829308C8 = {name = "GetDataSectionFromAssetIndex"}
 0x821D0A58 = {name = "assetDbGetUserData"}
 0x821CD2D8 = {name = "meDemandLoad"}
+0x821D17F0 = {name = "assetIdPrintf"}
+0x821D2368 = {name = "meFindUnitByHash"}
 
 #debug Functions
 0x821C4D28 = {name = "meDrawMessage"}
@@ -111,3 +118,6 @@ longjmp_address = 0x82AE2A60
 
 #UI Functions
 0x822992E8 = {name = "XuiSystem_c__Draw"}
+0x82299290 = {name = "XuiSystem_c__RunAnims"}
+0x826B8AC8 = {name = "XuiAnimRun"}
+0x826B8400 = {name = "XUITimeline_Run"}
