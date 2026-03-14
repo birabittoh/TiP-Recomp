@@ -3,8 +3,6 @@
 # Whitelist renut.exe for launcher updates
 !out/build/win-amd64-relwithdebinfo/renut.exe
 
-assets/
-generated/
 .vs/
 
 /out/build/win-amd64-debug
@@ -21,3 +19,16 @@ out/build/win-amd64-relwithdebinfo/Testing/
 out/build/win-amd64-relwithdebinfo/VSInheritEnvironments.txt
 out/build/win-amd64-relwithdebinfo/isenseconfig/
 /out/build/win-amd64-relwithdebinfo/logs
+/assets/$SystemUpdate
+/assets/Beta
+assets/buildVersion.ver
+assets/default.xex
+assets/gardensave.png
+assets/gardensavejff.png
+assets/photosave.png
+/assets/PinataCentral_v1.2.0a
+assets/x360_imports.idc
+assets/xextool.exe
+assets/XexTool.txt
+/generated
+assets/settingssave.png
