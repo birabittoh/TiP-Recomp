@@ -59,10 +59,14 @@ memcpy = 0x82AE1C70
 #special functions (Hold very significant value
 0x821F02C0 = {name = "rex_baseAssetInit"} # registers all the call back fucntions for each type of asset, Init, Destruct etc.
 0x821FC308 = {name = "rex_dbTextureInitTexture"} # Initializes the textures, this is what i hook on the pc port for texturepacks
+0x821f6840 = {name = "rex_cursorMainGetWorkspace_821F6840"} #Gets the cursor workspace
+0x824e10d8 = {name = "rex_gardenMainGetGarden_824E10D8"}
+0x824e1120 = {name = "rex_gardenMainGetGardenScene_824E1120"}
+0x822cc598 = {name = "rex_cursorMainGetCursor_822CC598"}
+0x822e0938 = {name = "rex_cursorMarkerIsCarrying_822E0938"}
 
 #bugdet functions
 0x824DBE80 = {name = "rex_sub_824DBE80"}
-
 
 #System Functions
 #0x82AFCCC0 = {name = "rex_SleepEx"}
@@ -86,6 +90,12 @@ memcpy = 0x82AE1C70
 
 #memory Functions
 0x82B0A290 = {name = "rex_glMemClear1"}
+0x8220cd10 = {name = "rex_dsMemoryContainerAlloc_8220CD10"}
+0x8220ced0 = {name = "rex_meAllocNewUnit_8220CED0"}
+0x82222c78 = {name = "rex_glMemArenasActiveGetHeap_82222C78"}
+0x82223c48 = {name = "rex_glMemInit_82223C48"}
+0x82223cc0 = {name = "rex_glMemAlloc_82223CC0"}
+0x82223d40 = {name = "rex_glMemAllocCleared_82223D40"}
 
 #Bundle Functions
 0x82240ED8 = {name = "rex_locMainGetBundlesPath"}
@@ -120,11 +130,16 @@ memcpy = 0x82AE1C70
 0x822009C8 = {name = "rex_sub_822009C8"}
 
 #Tick Functions
-#0x82B04F08 = {name = "rex_GetTickCount"}
 0x8229B828 = {name = "rex_videoMainUpdateUILoadingScreen"}
 0x8229B080 = {name = "rex_sub_8229B080"}
-#audio Functions
+0x821c86f8 = {name = "rex_appMainNoControllerTick_821C86F8"}
+0x821c8e78 = {name = "rex_appMainDraw_821C8E78"}
+0x821c91c0 = {name = "rex_appMainTickPreDraw_821C91C0"}
+0x821c93d8 = {name = "rex_meTick_821C93D8"}
+0x822040d0 = {name = "rex_drawFramebufferTick_822040D0"}
 0x821DA050 = {name = "rex_audioMainTick"}
+
+#audio Functions
 0x82A49850 = {name = "rex_audioListenerCreate"}
 0x82A50788 = {name = "rex_AudioListenerManager_c__GetManager"}
 0x82A4CBF0 = {name = "rex_AudioSystem_c__AudioSystemError"}
@@ -158,6 +173,70 @@ memcpy = 0x82AE1C70
 #0x82299290 = {name = "rex_XuiSystem_c__RunAnims"}
 #0x826B8AC8 = {name = "rex_XuiAnimRun"}
 #0x826B8400 = {name = "rex_XUITimeline_Run"}
+
+#Save/Load Functions
+0x8227e9a0 = {name = "rex_meLoadMain_8227E9A0"}
+0x82544970 = {name = "rex_meCanSaveGardenToMemory_82544970"}
+0x82591b70 = {name = "rex_supportPinataSaveGameCanSaveDataSafely_82591B70"}
+0x82592158 = {name = "rex_meSupportPinataSaveGameCanSaveGarden_82592158"}
+0x825923a8 = {name = "rex_meSupportPinataSaveGameCanSaveProfile_825923A8"}
+0x821d9d90 = {name = "rex_assetId_Serialise_821D9D90"}
+0x8220ad68 = {name = "rex_dsHandleRefSerialise_8220AD68"}
+0x8220c540 = {name = "rex_dsList2SerialiseInitX_8220C540"}
+0x8220c8f8 = {name = "rex_dsList2SerialiseLoopX_8220C8F8"}
+0x8220cca0 = {name = "rex_serialiseTreeNodeWriteString_8220CCA0"}
+0x8227fe10 = {name = "rex_serialiseManagerTick_8227FE10"}
+0x822805e0 = {name = "rex_serialiseStreamReadIntX_822805E0"}
+0x822806b0 = {name = "rex_serialiseStreamWriteBoolX_822806B0"}
+0x822809f0 = {name = "rex_serialiseStreamReadFloatX_822809F0"}
+0x82280fc8 = {name = "rex_serialiseStreamRW_BeginStructureX_82280FC8"}
+0x82281098 = {name = "rex_serialiseStreamRW_EndStructureX2_82281098"}
+0x82281390 = {name = "rex_serialiseStreamRW_StringX_82281390"}
+0x82281618 = {name = "rex_serialiseStreamRW_PointerX_82281618"}
+0x82281a60 = {name = "rex_serialiseStreamRW_Push_82281A60"}
+0x82281d60 = {name = "rex_serialiseStreamWriteIntX_82281D60"}
+0x82281dc8 = {name = "rex_serialiseStreamReadBoolX_82281DC8"}
+0x82281f68 = {name = "rex_serialiseStreamWriteFloatX_82281F68"}
+0x822823e0 = {name = "rex_serialiseTreeCreateNode_822823E0"}
+0x8243aab0 = {name = "rex_entityStrategyPinataAnimalEat_Serialise_8243AAB0"}
+0x8243aed8 = {name = "rex_entityStrategyPinataAnimalEgg_Serialise_8243AED8"}
+0x8247f890 = {name = "rex_entityStrategyPinataAnimalPestSelectBehaviour_Serialise_8247F890"}
+0x82485780 = {name = "rex_entityStrategyPinataAnimalPointToPoint_Serialise_82485780"}
+0x8248ab50 = {name = "rex_entityStrategyPinataAnimalRecreation_Serialise_8248AB50"}
+0x824a7fc8 = {name = "rex_entityStrategyPinataAnimalInterrupt_Serialise_824A7FC8"}
+0x824a8e58 = {name = "rex_entityStrategyPinataAnimalInvestigate_Serialise_824A8E58"}
+0x824a8f80 = {name = "rex_entityStrategyPinataAnimalReactToNearbyInterest_Serialise_824A8F80"}
+0x824af840 = {name = "rex_entityStrategyPinataAnimalParent_Serialise_824AF840"}
+0x824b2c78 = {name = "rex_entityStrategyPinataAnimalTalkToPlayer_Serialise_824B2C78"}
+0x824b50e0 = {name = "rex_entityStrategyPinataAnimalPestTargetItem_Serialise_824B50E0"}
+0x824b52c0 = {name = "rex_entityStrategyPinataAnimalPlayCommon_Serialise_824B52C0"}
+0x824b5878 = {name = "rex_entityStrategyPinataAnimalSelectorTargets_Serialise_824B5878"}
+0x824b5a78 = {name = "rex_entityStrategyPinataAnimalInstNowNext_Serialise_824B5A78"}
+0x824b5c58 = {name = "rex_entityStrategyPinataAnimalHelperInteractWithAnimal_Serialise_824B5C58"}
+0x824b5df8 = {name = "rex_entityStrategyPinataAnimalInteractWithHelper_Serialise_824B5DF8"}
+0x824b6060 = {name = "rex_entityStrategyPinataAnimalInst_Serialise_824B6060"}
+0x824bfc28 = {name = "rex_entityStrategyPinataAnimalTrappedAttract_Serialise_824BFC28"}
+0x824bfe20 = {name = "rex_entityStrategyPinataAnimalTrappedByGate_Serialise_824BFE20"}
+0x824c0ba8 = {name = "rex_entityStrategyPinataSelectorInst_Serialise_824C0BA8"}
+0x824c0c90 = {name = "rex_entityStrategyPinataSelectorEntryInst_Serialise_824C0C90"}
+0x8227fb90 = {name = "rex_serialiseSection_Serialise_8227FB90"}
+0x8227fc18 = {name = "rex_appSceneSerialiseSection_Serialise_8227FC18"}
+0x822948e8 = {name = "rex_uiXuiClassSpeechBubbleParams_Serialise_822948E8"}
+0x8224c6b8 = {name = "rex_mlVec_Serialise_8224C6B8"}
+0x82543b10 = {name = "rex_scenePinataSavingPostTick_82543B10"}
+
+#math Functions
+0x82246280 = {name = "rex_mlMap_82246280"}
+0x8292a588 = {name = "rex_mathSin_8292A588"}
+
+#Unsorted Functions
+#0x82224020 = {name = "rex_threadSpinLockUnlock_82224020"}
+0x8226ef18 = {name = "rex_sceneTimerCountDown_8226EF18"}
+0x82282f60 = {name = "rex_meGetVariableNameHash_82282F60"}
+#0x8228d848 = {name = "rex_threadSpinLockLock_8228D848"}
+0x82296398 = {name = "rex_meCachePackage_82296398"}
+#0x826b96b8 = {name = "rex_XuiResourceOpen_826B96B8"}
+#0x82ae0e70 = {name = "rex_snwprintf_s_82AE0E70"}
 
 [[midasm_hook]]
 address = 0x8229B0C8
