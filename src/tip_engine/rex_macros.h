@@ -15,15 +15,13 @@
 	PPC_EXTERN_IMPORT(__imp__rex_##function)
 
 #define REX_PPC_INVOKE(function, ...) \
-	(AddLogMessage(("Invoking function: " #function), 50), \
-	rex::GuestToHostFunction<function_return_t<decltype(function)>>(__imp__rex_##function, __VA_ARGS__))
+	rex::GuestToHostFunction<function_return_t<decltype(function)>>(__imp__rex_##function, __VA_ARGS__)
 
 #define REX_PPC_INVOKE2(return_type, function, ...) \
-	(AddLogMessage(("Invoking function: " #function), 50), \
-	rex::GuestToHostFunction<return_type>(__imp__rex_##function, __VA_ARGS__))
+	rex::GuestToHostFunction<return_type>(__imp__rex_##function, __VA_ARGS__)
 
 #define REX_PPC_HOOK(function) \
-    PPC_HOOK(function, function##_Hook)
+    PPC_HOOK(rex_##function, function##_Hook)
 
 #define REX_DATA_REFERENCE_DECLARE(address, type, name) \
 	type& name = *reinterpret_cast<type*>(0x100000000 + address)
