@@ -56,6 +56,15 @@ memcpy = 0x82AE1C70
 0x825383b8 = {}
 0x827d4320 = {}
 
+#sub_82330B40
+0x82330B40 = {name = "rex_sub_82330B40"}
+
+#assetManOpen_821D1CD0
+0x821D1CD0 = {name = "rex_assetManOpen_821D1CD0"}
+0x822215D8 = {name = "rex_gameAssetRefGetAid_822215D8"}
+0x824DC840 = {name = "rex_gardenBudgetGetIsTagAvailable_824DC840"}
+
+
 #special functions (Hold very significant value
 0x821F02C0 = {name = "rex_baseAssetInit"} # registers all the call back fucntions for each type of asset, Init, Destruct etc.
 0x821FC308 = {name = "rex_dbTextureInitTexture"} # Initializes the textures, this is what i hook on the pc port for texturepacks
@@ -315,3 +324,40 @@ name = "Space7_hook"
 registers = []
 after_instruction = false
 jump_address_on_true = 0x824DDA84
+
+#82330CC4 r31 = 0 -> r31 = 1
+[[midasm_hook]]
+address = 0x82330CC4
+name = "CursorColor_hook"
+registers = ["r31", "r27"]
+after_instruction = true
+
+#824DBEF8 
+[[midasm_hook]]
+address = 0x824DBEF8
+name = "tagUnitsBudget_hook"
+registers = []
+after_instruction = true
+
+#824DBF04
+[[midasm_hook]]
+address = 0x824DBF04
+name = "tagClassUnitsBudget_hook"
+registers = ["r3"]
+after_instruction = true
+
+#824DD108
+[[midasm_hook]]
+address = 0x824DD224
+name = "meUpdateOccupancyLevels_hook"
+registers = ["fp0"]
+after_instruction = false
+jump_address_on_true = 0x824DD228
+
+#8235DEDC
+[[midasm_hook]]
+address = 0x8235DEDC
+name = "skip_entityAvatarPinataSeedBigBrotherSaysYes_hook"
+registers = []
+after_instruction = false
+jump_address_on_true = 0x8235DEEC

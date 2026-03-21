@@ -5,6 +5,7 @@
 #include "generated/retip_config.h"
 #include "generated/retip_init.h"
 #include "tip_engine/Types/CursorInstance.h"
+#include <fstream>
 
 #include "tip_engine/rex_macros.h"
 #include <cstdint>
@@ -15,6 +16,7 @@
 #include "retip_app.h"
 #include <rex/logging.h>
 #include <iostream>
+#include "tip_engine/Overlays/DebugInfo.h"
 
 namespace renut::log {
   inline const rex::LogCategoryId Input = rex::RegisterLogCategory("retip");
@@ -28,12 +30,9 @@ namespace renut::log {
 
 REX_DEFINE_APP(retip, RetipApp::Create)
 
-REX_PPC_EXTERN_IMPORT(cursorMainGetCursor_822CC598);
 
-cursorInst_s* cursorMainGetCursor_822CC598_Hook(uint32_t a1, char a2){
-  cursorInst_s* result = REX_PPC_INVOKE2(cursorInst_s*, cursorMainGetCursor_822CC598, a1, a2);
-  
-  return result;
+int gardenBudgetGetIsTagAvailable_824DC840_Hook(unsigned int tag, int *tagClass) {
+  return 1;
 }
 
-REX_PPC_HOOK(cursorMainGetCursor_822CC598);
+REX_PPC_HOOK(gardenBudgetGetIsTagAvailable_824DC840);
