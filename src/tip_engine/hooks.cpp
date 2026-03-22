@@ -19,7 +19,7 @@
 
 REXCVAR_DEFINE_BOOL(show_fps_overlay, false, "_Trouble in Paradise", "Show FPS overlay");
 REXCVAR_DEFINE_BOOL(rgb_cursor, false, "_Trouble in Paradise", "Enables the Gursor");
-REXCVAR_DEFINE_BOOL(Lock_To_30fps, false, "_Trouble in Paradise", "Lock to 30 FPS");
+REXCVAR_DEFINE_BOOL(lock_fps, false, "_Trouble in Paradise", "Lock to 30 FPS");
 
 
 auto frameTime=std::chrono::system_clock::now();
@@ -60,7 +60,7 @@ bool PresentParams_hook(PPCRegister& r11) {
 
   params->FullScreen_RefreshRateInHz = bs(164);
   params->PresentationInterval = bs(0); // D3DPRESENT_INTERVAL_ONE
-  if(REXCVAR_GET(Lock_To_30fps)) {
+  if(REXCVAR_GET(lock_fps)) {
     params->PresentationInterval = bs(2); // D3DPRESENT_INTERVAL_TWO
   }
 
@@ -84,7 +84,7 @@ void PresentParams2_hook(PPCRegister& r3){
   //params->height = bs(1080);
   params->refreshRateHZ = bs(164);
   params->presentInterval = bs(0); // D3DPRESENT_INTERVAL_ONE
-  if(REXCVAR_GET(Lock_To_30fps)) {
+  if(REXCVAR_GET(lock_fps)) {
     params->presentInterval = bs(2); // D3DPRESENT_INTERVAL_TWO
   }
   params->presentImmediately = bs(1); // TRUE
@@ -92,7 +92,7 @@ void PresentParams2_hook(PPCRegister& r3){
 
 
 void vsync_hook(PPCRegister& r10) {
-  if(!REXCVAR_GET(Lock_To_30fps)) {
+  if(!REXCVAR_GET(lock_fps)) {
     r10.u32 = 0; // Force vsync off
   }
 }
