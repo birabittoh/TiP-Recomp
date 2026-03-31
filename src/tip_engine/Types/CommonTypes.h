@@ -117,7 +117,8 @@ struct _ndVisGroup_s
 };
 
 /* 637 */
-struct __declspec(align(1)) DiffFileHeader
+#pragma pack(push, 1)
+struct DiffFileHeader
 {
 	char identifier[4];
 	char patchVersion[16];
@@ -131,6 +132,7 @@ struct __declspec(align(1)) DiffFileHeader
 	unsigned char bigEndian;
 	unsigned char compressed;
 };
+#pragma pack(pop)
 
 /* 638 */
 struct DiffBlock
@@ -152,7 +154,7 @@ struct SectionLoadHeader
 	unsigned int filePointer;
 	int error;
 	unsigned int loadFlags;
-	void(__cdecl* callback)(assetFile*, const void*, int);
+	void(* callback)(assetFile*, const void*, int);
 	void* userData;
 };
 
@@ -172,7 +174,8 @@ struct DiffFile
 };
 
 /* 641 */
-struct __declspec(align(1)) blockInfo
+#pragma pack(push, 1)
+struct blockInfo
 {
 	unsigned int nameOffset;
 	unsigned char alignment;
@@ -184,9 +187,11 @@ struct __declspec(align(1)) blockInfo
 	unsigned int loadSize;
 	unsigned int compressedSize;
 };
+#pragma pack(pop)
 
 /* 642 */
-struct __declspec(align(2)) _section
+#pragma pack(push, 2)
+struct _section
 {
 	unsigned int asset;
 	unsigned char* start;
@@ -194,6 +199,7 @@ struct __declspec(align(2)) _section
 	unsigned char sectionType;
 	unsigned char startAlignment;
 };
+#pragma pack(pop)
 
 /* 643 */
 struct _byteswapGroup
@@ -226,7 +232,7 @@ struct _relocation
 };
 
 /* 602 */
-struct __declspec(align(4)) assetFile
+struct assetFile
 {
 	SectionLoadHeader loadHeader;
 	assetFileHeader* header;
@@ -293,12 +299,12 @@ struct FSObject_s
 	char name[260];
 	FS_IOMode mode;
 	_OVERLAPPED_VP overlapped;
-	void(__cdecl* notifyComplete)(FSObject_s* const, int, void* const);
+	void(* notifyComplete)(FSObject_s* const, int, void* const);
 	void* notifyContext;
 };
 
 /* 597 */
-struct __declspec(align(4)) dsList2_s
+struct dsList2_s
 {
 	char* base;
 	char* top;
@@ -315,7 +321,7 @@ struct assetSectionFileLoadUnit_s
 	char* filename;
 	void* memoryPointer;
 	int suppressMemoryCheck;
-	int(__cdecl* callback)(void*, void*, int);
+	int(* callback)(void*, void*, int);
 	void* callbackReference;
 	int runCallback;
 	int error;
@@ -330,7 +336,7 @@ struct assetSectionFileLoadUnit_s
 	void* destination;
 	unsigned int bufferSize;
 	unsigned int dbId;
-	void(__cdecl* completedCallback)(const void*, int);
+	void(* completedCallback)(const void*, int);
 };
 
 /* 784 */
@@ -1042,7 +1048,7 @@ struct avatarEmitter_s
 };
 
 /* 11918 */
-struct __declspec(align(4)) avatarExtent_s_unnamed_tag_unnamed_tag
+struct avatarExtent_s_unnamed_tag_unnamed_tag
 {
 	mlVec base;
 	int isValid;
@@ -1624,7 +1630,7 @@ struct aStarData_s
 };
 
 /* 11718 */
-struct __declspec(align(4)) aStarNodeInst_s
+struct aStarNodeInst_s
 {
 	dsLinkedListNode_s openNode;
 	uint16_t parent;
@@ -5182,7 +5188,7 @@ struct assetDbAsset_s
 struct assetManUnit_s // sizeof=0xA0
 {
      assetId_s aid;
-     unsigned __int64 hash64;
+     uint64_t hash64;
      assetDbAsset_s* dbAsset;
      int releaseOnTick;
      dsLinkedListNode_s dumpNode;

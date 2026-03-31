@@ -340,7 +340,6 @@ bool skip_entityAvatarPinataSeedBigBrotherSaysYes_hook() {
 
 void one_hook(){
   REXCVAR_SET(d3d12_readback_resolve, true);
-  DebugLogString("d3d12_readback_resolve", "true");
 }
 
 void two_hook(){

@@ -380,7 +380,7 @@ struct cursorParams_s_unnamed_tag
 };
 
 /* 12446 */
-struct __declspec(align(4)) cursorParams_s
+struct cursorParams_s
 {
   sceneControlObjParams_s __sceneControlObjParameters;
   cursorControlsType_e controls;
@@ -398,7 +398,7 @@ struct __declspec(align(4)) cursorParams_s
 };
 
 /* 12400 */
-struct __declspec(align(4)) cursorInst_s
+struct cursorInst_s
 {
   sceneControlObjInst_s __sceneControlObjInstance;
   cursorMainWorkspace_s *workspace;

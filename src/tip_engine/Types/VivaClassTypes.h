@@ -1182,7 +1182,7 @@ struct statsActorCommon_Attributes_s_
 {
     float minRecoveryTime;
     float maxRecoveryTime;
-    unsigned __int8 recoveryValue;
+    unsigned char recoveryValue;
     int neverGetsSick;
 };
 
@@ -1193,7 +1193,7 @@ struct supportPinataTagDb_s
 };
 
 /* 12603 */
-struct __declspec(align(4)) statsActorCommon_FightData_s
+struct statsActorCommon_FightData_s
 {
     supportPinataTagDb_s projectileTag;
     float standApart;
@@ -1201,14 +1201,14 @@ struct __declspec(align(4)) statsActorCommon_FightData_s
     float attackTimePeriod;
     float gravityValue;
     float blockProbability;
-    unsigned __int8 fightAbility;
-    unsigned __int8 aggression;
+    unsigned char fightAbility;
+    unsigned char aggression;
 };
 
 /* 12604 */
 struct statsActorCommon_Attributes_s
 {
-    unsigned __int8 logicalSize;
+    unsigned char logicalSize;
     statsActorCommon_Attributes_s_ illness;
     unsigned char  wait[20];
     statsActorCommon_FightData_s fightData;
@@ -1242,7 +1242,7 @@ struct statsActorCommon_SpecialAbility_s
 {
     assetId_s abilityParamsAID;
     int hasUnlimitedUses;
-    unsigned __int8 usesPerDay;
+    unsigned char usesPerDay;
     int automaticAbility;
 };
 
