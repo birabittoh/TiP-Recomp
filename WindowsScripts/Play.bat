@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-cd /d "%~dp0"
+cd /d "%~dp0.."
 
 echo Copying retip.exe and DLLs to the batch file's directory...
 copy /y "out\build\win-amd64-relwithdebinfo\retip.exe" .

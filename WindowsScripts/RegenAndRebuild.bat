@@ -1,8 +1,8 @@
 @echo off
 setlocal
 
-REM Go to script directory
-cd /d "%~dp0"
+REM Go to parent of script directory
+cd /d "%~dp0.."
 
 echo ================================
 echo Step 1 Running rexglue migrate
