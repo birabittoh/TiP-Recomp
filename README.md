@@ -9,10 +9,10 @@ Showcase Video: https://youtu.be/Kih42KlocII?si=WeSh2FvBYrwQuNB-
 Currently only supports windows, Linux is planned though. This project is still very early on so you will run into issues, if you do please report them in the github issues tab, Just make sure before you do no one else as made that same issue.
 
 ## Setup
-- 1 Download the latest Launcher (Depending on your system you might need to disable the antivirus to download or extract)
+- 1 Download the latest Launcher somewhere on the C drive (Depending on your system you might need to disable the antivirus to download or extract)
 - 2 Obtain a legal copy of TiP's Iso (World) (I dont support piracy)
 - 3 Inside the launcher press "Select Iso"
-- 4 Once Selected the Iso will start to extract
+- 4 Once Selected the Iso will start to extract, if it doesn't work make sure the name is normalized aka "C:/Games/" not "C:/Games but with a space and a $/"
 - 5 Once its extracted it will say "Download", Press it
 - 6 Now that the recompiled exe is downloaded you can press "Launch"
 - 7 If an update is out the launcher will force you to update, this is by design. As we rapidly fix bugs we want people to be using to latest version.
