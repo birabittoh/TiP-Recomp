@@ -2,6 +2,7 @@
 #include <rex/ui/imgui_dialog.h>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include "imgui.h"
 
 //Probably overkill but eh..
@@ -14,7 +15,7 @@ inline void strncpy_s_MultiPlatform(char* dest, size_t destSize, const char* src
 }
 
 
-enum DebugInfoType_e : __int32
+enum DebugInfoType_e : int32_t
 {
     Bool = 0x0,
     Int = 0x1,

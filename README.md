@@ -6,7 +6,7 @@ This Recomp has a strict no AI rule, No Vibe Coding, No AI generated Assets, No 
 
 Showcase Video: https://youtu.be/Kih42KlocII?si=WeSh2FvBYrwQuNB-
 
-Currently only supports windows, Linux is planned though. This project is still very early on so you will run into issues, if you do please report them in the github issues tab, Just make sure before you do no one else as made that same issue.
+Supports Windows and Linux (x64). This project is still very early on so you will run into issues, if you do please report them in the github issues tab, Just make sure before you do no one else as made that same issue.
 
 ## Setup
 - 1 Download the latest Launcher somewhere on the C drive (Depending on your system you might need to disable the antivirus to download or extract)
@@ -18,6 +18,8 @@ Currently only supports windows, Linux is planned though. This project is still 
 - 7 If an update is out the launcher will force you to update, this is by design. As we rapidly fix bugs we want people to be using to latest version.
 
 ## Building from scratch
+
+### Windows
 - 1 Clone and Build the Rexglue SDK https://github.com/rexglue/rexglue-sdk/
 
 ```
@@ -33,8 +35,29 @@ git clone https://github.com/SolarCookies/TiP-Recomp.git
 ```
 - 3 Extract the (world) version of the iso to the ```assets/``` folder, the default xex sould be located here: ```assets/default.xex```
 
-- 4 Run ```RegenAndRebuild.bat``` to run the recompile process and build
-- 5 Run ```Play.bat``` to move the exe to the root and run it with the default arguments
+- 4 Run ```WindowsScripts/RegenAndRebuild.bat``` to run the recompile process and build
+- 5 Run ```WindowsScripts/Play.bat``` to move the exe to the root and run it with the default arguments
+
+### Linux
+- 1 Install dependencies: `clang`, `ninja-build`, `cmake`, `libgtk-3-dev`, `pkg-config`
+
+- 2 Clone and Build the Rexglue SDK https://github.com/rexglue/rexglue-sdk/
+
+```
+git clone --recursive https://github.com/rexglue/rexglue-sdk.git
+cd rexglue-sdk
+cmake --preset linux-amd64
+cmake --build --preset linux-amd64-relwithdebinfo --target install
+```
+- 3 Clone TiP-Recomp
+```
+cd ../
+git clone https://github.com/SolarCookies/TiP-Recomp.git
+```
+- 4 Extract the (world) version of the iso to the ```assets/``` folder, the default xex sould be located here: ```assets/default.xex```
+
+- 5 Run ```LinuxScripts/regen_and_rebuild.sh``` to run the recompile process and build
+- 6 Run ```LinuxScripts/play.sh``` to move the binary to the root and run it with the default arguments
 
 ## Credits
 - [Franksy32](https://https://github.com/Franksy32) For providing the unlimited garden space patches
