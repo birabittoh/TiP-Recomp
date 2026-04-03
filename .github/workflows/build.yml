@@ -5,6 +5,7 @@ on:
     branches: ["**"]
     tags:
       - "[0-9]*.[0-9]*"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,14 +23,16 @@ jobs:
             runner: windows-latest
             preset: win-amd64-relwithdebinfo
             binary: out\build\win-amd64-relwithdebinfo\retip.exe
-            artifact: retip-windows-x64.exe
+            suffix: -windows-x64
+            ext: .exe
 
           - platform: linux
             arch: x64
             runner: ubuntu-latest
             preset: linux-amd64-relwithdebinfo
             binary: out/build/linux-amd64-relwithdebinfo/retip
-            artifact: retip-linux-x64
+            suffix: -linux-x64
+            ext: ""
 
     steps:
       - name: Checkout
@@ -72,15 +75,25 @@ jobs:
       - name: Build
         run: cmake --build --preset ${{ matrix.preset }}
 
+      - name: Set version string
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "value=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "value=dev-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Rename binary
         shell: bash
-        run: cp "${{ matrix.binary }}" "${{ matrix.artifact }}"
+        run: cp "${{ matrix.binary }}" "retip-${{ steps.version.outputs.value }}${{ matrix.suffix }}${{ matrix.ext }}"
 
       - name: Upload binary
         uses: actions/upload-artifact@v7
         with:
-          name: ${{ matrix.artifact }}
-          path: ${{ matrix.artifact }}
+          name: retip-${{ steps.version.outputs.value }}${{ matrix.suffix }}${{ matrix.ext }}
+          path: retip-${{ steps.version.outputs.value }}${{ matrix.suffix }}${{ matrix.ext }}
 
   release:
     name: Create Release
